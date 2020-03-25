@@ -47,8 +47,8 @@ export default () => {
                                 <Route exact path="/search" component={Search} />
                                 <Route exact path="/user" component={User} />
                                 <Route component={NotFound} />
+                                <Route to='*' component={NotFound} />
                                 {/* <Redirect to={`/`} /> */}
-                                {/* <Redirect to='*' component={NotFound} /> */}
                             </Switch>
                         </Suspense>
                     </App>

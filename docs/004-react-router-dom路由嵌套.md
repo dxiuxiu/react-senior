@@ -26,3 +26,20 @@
     }} >
 </Route>
 ```
+
+
+??
+```javascript
+<Route path='/' component={App} >
+    <Suspense fallback={(<div>loading...</div>)}>
+        <Switch>
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/city" component={City} />
+            <Route exact path="/detail" component={Detail} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/user" component={User} />
+            <Route component={NotFound} />
+        </Switch>
+    </Suspense>
+</Route>
+```
