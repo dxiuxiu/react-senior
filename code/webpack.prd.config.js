@@ -2,6 +2,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 module.exports = {
   mode: "production",
   entry: {
@@ -46,6 +47,8 @@ module.exports = {
           loader: "url-loader",
           options: {
             limit: 10 * 1024,
+            // path: path.resolve(__dirname, 'dist'),
+
             name: 'static/images/[hash:6].[ext]',
             fallback: 'file-loader',
             publicPath: '../'
@@ -57,6 +60,7 @@ module.exports = {
         use: [{
           loader: "file-loader",
           options: {
+            // path: path.resolve(__dirname, 'dist'),
             name: 'static/media/[name].[hash:7].[ext]',
           }
         }]
@@ -81,7 +85,8 @@ module.exports = {
     new MiniCssExtractPlugin(
       {
         filename: 'style/[name].[contenthash].css',
-        chunkFilename: 'style/[id].[contenthash].css'
+        chunkFilename: 'style/[id].[contenthash].css',
+        // path: path.resolve(__dirname, 'dist') // 默认值
       }
     )
   ],
@@ -89,5 +94,6 @@ module.exports = {
     filename: 'static/js/[name].[contenthash].js',
     // chunkFilename: 'static/js/[name].[contenthash].js',
     chunkFilename: 'static/js/[id].[contenthash].js',
+    // path: path.resolve(__dirname, 'dist') // 默认值
   },
 }
