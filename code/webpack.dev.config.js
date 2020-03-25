@@ -42,6 +42,27 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(jpe?g|png|gif|webp)$/,
+        use: [{
+          loader: "url-loader",
+          options: {
+            limit: 10 * 1024,
+            name: 'static/images/[hash:6].[ext]',
+            fallback: 'file-loader',
+            publicPath: '../'
+          }
+        }]
+      },
+      {
+        test: /\.(wsv|ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        use: [{
+          loader: "file-loader",
+          options: {
+            name: 'static/media/[name].[hash:7].[ext]',
+          }
+        }]
+      }
     ]
   },
   output: {
