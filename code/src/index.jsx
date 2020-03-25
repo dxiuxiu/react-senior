@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './App/index.jsx'
+import RouterMap from './router/index.jsx'
 
-ReactDOM.render(<App/>,
+ReactDOM.render(<RouterMap />,
 document.getElementById('root'))
 
 // HMR

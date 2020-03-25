@@ -2,6 +2,7 @@ module.exports = {
   entry: {
     index: "./src/index.jsx"
   },
+  devtool: 'cheap-module-source-map',
   devServer: {
     contentBase: './public',
     open: true,
