@@ -11,7 +11,13 @@ module.exports = {
 
     // 用自己的 ip 访问 devServer 启动的服务
     useLocalIp: true,
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    proxy:{
+      '/test':{
+        target:'http://localhost:3000',
+        secure:false
+      }
+    }
   },
   module: {
     rules: [
