@@ -21,19 +21,6 @@ export default () => {
     return (
         // history = {this.props.history}
         <Router >
-            {/* <Route path = '/' render={() => <App/>} > */}
-            {/* <Route path = '/' component = {App} >
-            </Route> */}
-
-
-            {/* <Route path = '/' render = {() => {
-                return (
-                    <App>
-                        content
-                    </App>
-                )
-            }}/> */}
-
             <Route path='/' render={() => {
                 return (
                     <App>
@@ -46,8 +33,10 @@ export default () => {
                                 <Route exact path="/detail" component={Detail} />
                                 <Route exact path="/search" component={Search} />
                                 <Route exact path="/user" component={User} />
+                                {/* http://localhost:8080/ 出现 NotMatch */}
+                                <Route exact path="/" component={Home} />
                                 <Route component={NotFound} />
-                                <Route to='*' component={NotFound} />
+                                {/* <Route to='*' component={NotFound} /> */}
                                 {/* <Redirect to={`/`} /> */}
                             </Switch>
                         </Suspense>
@@ -55,22 +44,6 @@ export default () => {
                 )
             }} >
             </Route>
-
-
-            {/* <Route exact path='/' component={App} >
-                <Suspense fallback={(<div>loading...</div>)}>
-                    <Switch>
-                        <Route path="/home" component={Home} />
-                        <Route path="/city" component={City} />
-                        <Route path="/detail" component={Detail} />
-                        <Route path="/search" component={Search} />
-                        <Route path="/user" component={User} />
-                        <Redirect to='*' component={NotFound} />
-                    </Switch>
-                </Suspense>
-            </Route> */}
-
-
         </Router>
     )
 }
