@@ -42,7 +42,7 @@ module.exports = {
               // module: true,
               // localIdentName: '[local]-[hash:base64:10]'
               modules: {
-                localIdentName: '[local]-[hash:base64:10]'// '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
               }
             }
           },
