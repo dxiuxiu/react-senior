@@ -15,6 +15,9 @@ const City = lazy(() => import('../containers/City/index.jsx'))
 const Detail = lazy(() => import('../containers/Detail/index.jsx'))
 const Search = lazy(() => import('../containers/Search/index.jsx'))
 const User = lazy(() => import('../containers/User/index.jsx'))
+const Test = lazy(() => import('../Test/index.jsx'))
+// import Test  from '../Test/index.jsx'
+// <Test/>
 
 // RouterMap
 export default () => {
@@ -33,6 +36,7 @@ export default () => {
                                 <Route exact path="/detail" component={Detail} />
                                 <Route exact path="/search" component={Search} />
                                 <Route exact path="/user" component={User} />
+                                <Route exact path="/test" component={Test} />
                                 {/* http://localhost:8080/ 出现 NotMatch */}
                                 <Route exact path="/" component={Home} />
                                 <Route component={NotFound} />

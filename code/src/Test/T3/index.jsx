@@ -20,7 +20,7 @@ export default function App(){
     })
     // return <div className = 'container'>
     return <div styleName = 'container'>
-        hello word fesnrfm
+        测试 fetch 做后台请求
     </div>
 }
 

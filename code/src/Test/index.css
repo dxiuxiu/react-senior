@@ -1,5 +1,6 @@
 
 .container {
-    color: red;
+    height: 600px;
+    width: 800px;
     background-image: url(../static/images/sunfloewr.png);
 }
