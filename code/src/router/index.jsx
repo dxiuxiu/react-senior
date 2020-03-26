@@ -16,8 +16,58 @@ const Detail = lazy(() => import('../containers/Detail/index.jsx'))
 const Search = lazy(() => import('../containers/Search/index.jsx'))
 const User = lazy(() => import('../containers/User/index.jsx'))
 const Test = lazy(() => import('../Test/index.jsx'))
-// import Test  from '../Test/index.jsx'
-// <Test/>
+
+const routers = [
+    {
+        id: 'home',
+        exact: true,
+        path: '/home',
+        component: Home
+    },
+    {
+        id: 'city',
+        exact: true,
+        path: '/city',
+        component: City
+    },
+    {
+        id: 'detail',
+        exact: true,
+        path: '/detail',
+        component: Detail
+    },
+    {
+        id: 'search',
+        exact: true,
+        path: '/search',
+        component: Search
+    },
+    {
+        id: 'user',
+        exact: true,
+        path: '/user',
+        component: User
+    },
+    {
+        id: 'test',
+        exact: true,
+        path: '/test',
+        component: Test
+    },
+    {
+        id: 'root',
+        exact: true,
+        path: '/',
+        component: Home
+    },
+    {
+        id: '404',
+        exact: undefined,
+        path: undefined,
+        component: NotFound
+    }
+
+]
 
 // RouterMap
 export default () => {
@@ -31,17 +81,22 @@ export default () => {
                         <Suspense fallback={(<div>loading...</div>)}>
                             {/* Switch 包裹的 route 一旦有匹配成功的就不再向下匹配 */}
                             <Switch>
-                                <Route exact path="/home" component={Home} />
+                                {
+                                    routers.map((item) => {
+                                        return <Route exact={item.exact} path={item.path} component={item.component} />
+                                    })
+                                }
+                                <Route component={NotFound} />
+
+
+                                {/* <Route exact path="/home" component={Home} />
                                 <Route exact path="/city" component={City} />
                                 <Route exact path="/detail" component={Detail} />
                                 <Route exact path="/search" component={Search} />
                                 <Route exact path="/user" component={User} />
                                 <Route exact path="/test" component={Test} />
-                                {/* http://localhost:8080/ 出现 NotMatch */}
                                 <Route exact path="/" component={Home} />
-                                <Route component={NotFound} />
-                                {/* <Route to='*' component={NotFound} /> */}
-                                {/* <Redirect to={`/`} /> */}
+                                <Route component={NotFound} /> */}
                             </Switch>
                         </Suspense>
                     </App>
