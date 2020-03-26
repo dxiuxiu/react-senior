@@ -25,24 +25,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'babel-loader',
-          query: {
-            plugins: [
-              // '@babel/transform-react-jsx',
-              [
-                'react-css-modules',
-                {
-                  context
-                }
-              ]
-            ]
-          },
-        }
-      },
-      {
         test: /\.less$/,
         use: [
           {
@@ -61,15 +43,33 @@ module.exports = {
           },
           {
             loader: 'less-loader',
-            // options: {
-            //   lessOptions: {
-            //     strictMath: true,
-            //     noIeCompat: true,
-            //   },
-            // },
+            options: {
+              lessOptions: {
+                strictMath: true,
+                noIeCompat: true,
+              },
+            },
           },
         ],
       },
+      {
+        test: /\.jsx$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          query: {
+            plugins: [
+              [
+                'react-css-modules',
+                {
+                  context
+                }
+              ]
+            ]
+          },
+        }
+      },
+
       {
         test: /\.(jpe?g|png|gif|webp)$/,
         use: [{
