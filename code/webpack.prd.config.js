@@ -2,9 +2,6 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const path = require('path')
-const context = path.resolve(__dirname, 'src')
-const postcssLess = require('postcss-less')
 module.exports = {
   mode: "production",
   entry: {
@@ -23,31 +20,17 @@ module.exports = {
         exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
-          query: {
-            plugins: [
-              [
-                'react-css-modules',
-                {
-                  context,
-                }
-              ]
-            ]
-          },
         }
       },
       {
         test: /\.less$/,
         use: [
           {
-            // loader: 'style-loader',
             loader: MiniCssExtractPlugin.loader,
           },
           {
-            // loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
             loader: 'css-loader',
             options: {
-              // module: true,
-              // localIdentName: '[local]-[hash:base64:10]'
               modules: {
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
               }
