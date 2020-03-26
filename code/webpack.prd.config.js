@@ -24,27 +24,35 @@ module.exports = {
         }
       },
       {
-        test: /\.less$/,
+        test: /\.css$/,
         use: [
           {
             // loader: 'style-loader',
             loader: MiniCssExtractPlugin.loader,
           },
           {
+            // loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
             loader: 'css-loader',
+            options: {
+              // module: true,
+              // localIdentName: '[local]-[hash:base64:10]'
+              modules: {
+                localIdentName: '[local]-[hash:base64:10]'// '[path][name]__[local]--[hash:base64:5]',
+              }
+            }
           },
           {
             loader: 'postcss-loader'
           },
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                strictMath: true,
-                noIeCompat: true,
-              },
-            },
-          },
+          // {
+          //   loader: 'less-loader',
+          //   options: {
+          //     lessOptions: {
+          //       strictMath: true,
+          //       noIeCompat: true,
+          //     },
+          //   },
+          // },
         ],
       },
       {

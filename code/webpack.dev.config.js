@@ -13,10 +13,10 @@ module.exports = {
     // 用自己的 ip 访问 devServer 启动的服务
     useLocalIp: true,
     host: '0.0.0.0',
-    proxy:{
-      '/test':{
-        target:'http://localhost:3000',
-        secure:false
+    proxy: {
+      '/test': {
+        target: 'http://localhost:3000',
+        secure: false
       }
     }
   },
@@ -30,26 +30,34 @@ module.exports = {
         }
       },
       {
-        test: /\.less$/,
+        test: /\.css$/,
         use: [
           {
             loader: 'style-loader',
           },
           {
+            // loader: 'css-loader?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
             loader: 'css-loader',
+            options: {
+              // module: true,
+              // localIdentName: '[local]-[hash:base64:10]'
+              modules: {
+                localIdentName: '[local]-[hash:base64:10]'// '[path][name]__[local]--[hash:base64:5]',
+              }
+            }
           },
           {
             loader: 'postcss-loader'
           },
-          {
-            loader: 'less-loader',
-            options: {
-              lessOptions: {
-                strictMath: true,
-                noIeCompat: true,
-              },
-            },
-          },
+          // {
+          //   loader: 'less-loader',
+          //   options: {
+          //     lessOptions: {
+          //       strictMath: true,
+          //       noIeCompat: true,
+          //     },
+          //   },
+          // },
         ],
       },
       {

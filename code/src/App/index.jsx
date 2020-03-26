@@ -1,6 +1,6 @@
 import React,{useEffect} from 'react'
 import {get, post} from '../api/test'
-import './index.less'
+import './index.css'
 export default function App(){
     useEffect(() => {
         get('/test/t1').then((data) => {
@@ -18,7 +18,10 @@ export default function App(){
         })
         
     })
-    return <div className = 'container'>
+    // return <div className = 'container'>
+    return <div styleName = 'container'>
         hello word fesnrfm
     </div>
 }
+
+// export default CSSModules(App, style);
