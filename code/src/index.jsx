@@ -3,8 +3,15 @@ import ReactDOM from 'react-dom'
 
 import RouterMap from './router/index.jsx'
 
-ReactDOM.render(<RouterMap />,
-document.getElementById('root'))
+import { Provider } from 'react-redux'
+import store from './store/createReduxStore.js'
+
+// ReactDOM.render(<RouterMap />,
+ReactDOM.render(
+    <Provider store = {store}>
+        <RouterMap />
+    </Provider>,
+    document.getElementById('root'))
 
 // HMR
 if (module.hot) {

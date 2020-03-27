@@ -83,7 +83,7 @@ export default () => {
                             <Switch>
                                 {
                                     routers.map((item) => {
-                                        return <Route exact={item.exact} path={item.path} component={item.component} />
+                                        return <Route exact={item.exact} key = {item.id} path={item.path} component={item.component} />
                                     })
                                 }
                                 <Route component={NotFound} />
