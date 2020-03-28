@@ -17,16 +17,13 @@ module.exports = {
       'react-css-modules',
       {
         context,
-        generateScopedName: 'src-[path][name]__[local]', // --[hash:base64:5]
+        generateScopedName: '[path][name]__[local]--[hash:base64:5]',
         webpackHotModuleReloading: true,
         exclude: 'node_modules',
         filetypes: {
-          //   '.scss': {
-          //     syntax: 'postcss-scss'
-          //   },
-          // '.sass': {
-          //   syntax: 'postcss-sass'
-          // },
+          '.scss': {
+            syntax: 'postcss-scss'
+          },
           '.less': {
             syntax: 'postcss-less'
           }

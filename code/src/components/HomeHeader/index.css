@@ -1,0 +1,17 @@
+input {
+    outline: none;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.clearFix:after {
+    display: table;
+    content: '';
+    clear: both;
+}

@@ -23,6 +23,20 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      },
+      {
         test: /\.less$/,
         use: [
           {
@@ -31,8 +45,9 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              // modules: true
               modules: {
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[path][name]__[local]', // --[hash:base64:5]
               }
             }
           },
@@ -54,14 +69,17 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           {
+<<<<<<< HEAD
             // loader: 'style-loader',
+=======
+>>>>>>> dev-005-p
             loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[path][name]__[local]', // --[hash:base64:5]
               }
             }
           },

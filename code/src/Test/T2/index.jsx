@@ -1,7 +1,7 @@
 import React from 'react'
-import style from './index.less'
+import './index.less'
 export default function T2(){
-    return <div className = {style.container}>
+    return <div styleName = 'container'>
         t2
     </div>
 }
