@@ -11,7 +11,22 @@ module.exports = {
       {
         context,
         generateScopedName: '[path][name]__[local]--[hash:base64:5]',
+        webpackHotModuleReloading: true,
+        exclude: 'node_modules',
+        filetypes: {
+          '.scss': {
+            syntax: 'postcss-scss'
+          },
+          // '.sass': {
+          //   syntax: 'postcss-sass'
+          // },
+          '.less': {
+            syntax: 'postcss-less'
+          }
+        },
+        autoResolveMultipleImports: true
       }
     ]
+
   ]
 }
