@@ -66,13 +66,9 @@ module.exports = {
         ],
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.scss$/i,
         use: [
           {
-<<<<<<< HEAD
-            // loader: 'style-loader',
-=======
->>>>>>> dev-005-p
             loader: MiniCssExtractPlugin.loader,
           },
           {
