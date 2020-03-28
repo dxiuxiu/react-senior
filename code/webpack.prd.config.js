@@ -23,6 +23,26 @@ module.exports = {
         }
       },
       {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+              // modules: {
+              //   localIdentName: '[path][name]__[local]',// --[hash:base64:5]
+              // }
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          }
+        ]
+      },
+      {
         test: /\.less$/,
         use: [
           {
@@ -31,8 +51,9 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              // modules: true
               modules: {
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[path][name]__[local]', // --[hash:base64:5]
               }
             }
           },
@@ -60,7 +81,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                localIdentName: '[path][name]__[local]', // --[hash:base64:5]
               }
             }
           },

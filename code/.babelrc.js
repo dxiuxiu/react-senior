@@ -10,13 +10,13 @@ module.exports = {
       'react-css-modules',
       {
         context,
-        generateScopedName: '[path][name]__[local]--[hash:base64:5]',
+        generateScopedName: 'src-[path][name]__[local]', // --[hash:base64:5]
         webpackHotModuleReloading: true,
-        exclude: 'node_modules',
+        exclude:'node_modules',
         filetypes: {
-          '.scss': {
-            syntax: 'postcss-scss'
-          },
+          //   '.scss': {
+          //     syntax: 'postcss-scss'
+          //   },
           // '.sass': {
           //   syntax: 'postcss-sass'
           // },
@@ -27,6 +27,5 @@ module.exports = {
         autoResolveMultipleImports: true
       }
     ]
-
   ]
 }
