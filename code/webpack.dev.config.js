@@ -53,6 +53,28 @@ module.exports = {
         ],
       },
       {
+        test: /\.s[ac]ss$/i,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              }
+            }
+          },
+          {
+            loader: 'postcss-loader'
+          },
+          {
+            loader: 'sass-loader'
+          },
+        ],
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         use: {
