@@ -16,7 +16,11 @@ module.exports = {
     useLocalIp: true,
     host: '0.0.0.0',
     proxy: {
-      '/test': {
+      // '/test': {
+      //   target: 'http://localhost:3000',
+      //   secure: false
+      // },
+      '/home': {
         target: 'http://localhost:3000',
         secure: false
       }
@@ -63,7 +67,8 @@ module.exports = {
             limit: 10 * 1024,
             name: 'static/images/[hash:6].[ext]',
             fallback: 'file-loader',
-            publicPath: '../'
+            publicPath: '../',
+            esModule: false, // 
           }
         }]
       },

@@ -4,12 +4,15 @@ import HomeHeader from '../../components/HomeHeader/index.jsx'
 import Category from '../../components/Category/index.jsx'
 
 import { connect } from 'react-redux'
-
+import Ad from './subPage/Ad.jsx'
+import List from './subPage/List.jsx'
 const Home = (props) => {
     return (
         <div >
             <HomeHeader cityName={props.userInfo} />
             <Category/>
+            <Ad/>
+            <List city = 'city'/>
         </div>
     )
 }

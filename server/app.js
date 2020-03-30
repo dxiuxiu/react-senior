@@ -10,6 +10,7 @@ const index = require('./routes/index')
 const users = require('./routes/users')
 
 const test = require('./routes/test')
+const home = require('./routes/home')
 // error handler
 onerror(app)
 
@@ -37,6 +38,7 @@ app.use(async (ctx, next) => {
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(test.routes(), test.allowedMethods())
+app.use(home.routes(), home.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
