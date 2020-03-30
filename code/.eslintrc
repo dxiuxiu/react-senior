@@ -13,7 +13,8 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "react-hooks"
     ],
     "rules": {
         "indent": 0,
@@ -24,6 +25,10 @@
         "no-unused-vars": 0,
         "no-console": 0,
         "no-mixed-spaces-and-tabs": 0,
-        "no-cond-assign": 0
+        "no-cond-assign": 0,
+
+        // ===HOOK
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }

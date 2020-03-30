@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
     "autoprefixer": "^9.7.5",
@@ -20,6 +21,7 @@
     "cssnano": "^4.1.10",
     "eslint": "^6.8.0",
     "eslint-loader": "^3.0.3",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.1",
     "less": "^3.11.1",
@@ -29,7 +31,6 @@
     "postcss-less": "^3.1.4",
     "postcss-loader": "^3.0.0",
     "react-css-modules": "^4.7.11",
-    "react-logger": "^1.1.0",
     "redux-logger": "^3.0.6",
     "sass": "^1.26.3",
     "sass-loader": "^8.0.2",
@@ -45,6 +46,7 @@
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
+    "react-swipe": "5.1.1",
     "redux": "^4.0.5"
   }
 }

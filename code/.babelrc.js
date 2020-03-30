@@ -6,26 +6,27 @@ module.exports = {
     require('@babel/preset-react')
   ],
   plugins: [
+    '@babel/plugin-proposal-class-properties',
     [
-      'react-css-modules',
-      {
-        context,
-        generateScopedName: 'src-[path][name]__[local]', // --[hash:base64:5]
-        webpackHotModuleReloading: true,
-        exclude:'node_modules',
-        filetypes: {
-          //   '.scss': {
-          //     syntax: 'postcss-scss'
-          //   },
-          // '.sass': {
-          //   syntax: 'postcss-sass'
-          // },
-          '.less': {
-            syntax: 'postcss-less'
-          }
-        },
-        autoResolveMultipleImports: true
-      }
+    'react-css-modules',
+    {
+      context,
+      generateScopedName: 'src-[path][name]__[local]', // --[hash:base64:5]
+      webpackHotModuleReloading: true,
+      exclude: 'node_modules',
+      filetypes: {
+        //   '.scss': {
+        //     syntax: 'postcss-scss'
+        //   },
+        // '.sass': {
+        //   syntax: 'postcss-sass'
+        // },
+        '.less': {
+          syntax: 'postcss-less'
+        }
+      },
+      autoResolveMultipleImports: true
+    }
     ]
   ]
 }
