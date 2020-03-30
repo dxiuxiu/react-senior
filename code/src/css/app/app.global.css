@@ -1,3 +1,62 @@
-.global-test-class{
+/* .global-test-class{
     font-size: 36px;
+} */
+
+/* 字体图标的导入与使用 */
+@import '../../static/fonts/font.css'; 
+
+html,
+body,
+#root {
+    margin: 0;
+    padding: 0;
+    /* font-variant-numeric: tabular-nums; */
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    /* background-color: #533f3f; */
+    background-color:white;
+
+    box-sizing: border-box;
+    font-family: "微软雅黑","Times New Roman",Georgia,Serif;
+    /* font-family: Microsoft Yahei !important; */
+
+}
+
+*::-webkit-scrollbar {
+	width: 8px;
+	height:8px;
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0,0,0,0.1);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+}
+
+input {
+    outline:none;
+}
+
+.float-left {
+    float: left;
+    width: 60px;
+}
+
+.float-right {
+    float: right;
+    width: 60px;
+}
+
+.clear-fix:after {
+    display: table;
+    content: '';
+    clear: both;
 }

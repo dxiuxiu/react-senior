@@ -1,19 +1,44 @@
+@spaceHeight:5px;
+.home-header {
+    background-color: red;
+    padding: 10px;
+    color: white;
 
+    // height: 50px;
+    .home-header-left {
+        width: 60px;
+        margin: @spaceHeight 0;
 
-input {
-    outline: none;
-}
+    }
 
-.float-left {
-    float: left;
-}
+    .home-header-right {
+        margin: @spaceHeight 0;
+        width: 30px;
+        text-align: right;
+    }
 
-.float-right {
-    float: right;
-}
+    .home-header-middle {
+        width: auto;
+        margin: 0 30px 0 60px;
 
-.clear-fix:after {
-    display: table;
-    content: '';
-    clear: both;
+        .search-container {
+            border-radius: 15px;
+            background-color:#fff;
+            // overflow: hidden;
+            padding: @spaceHeight;
+            input {
+                width: auto;
+                outline: none;
+                padding: 5px;
+                border: none;
+                font-size: 14px!important;
+                font-weight: normal;
+            }
+
+            i {
+                margin-left: 10px;
+                color: #ccc!important;
+            }
+        }
+    }
 }
