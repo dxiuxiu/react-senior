@@ -6,7 +6,7 @@ import RouterMap from './router/index.jsx'
 import { Provider } from 'react-redux'
 import store from './store/createReduxStore.js'
 
-import  './css/app/app.global.css'
+import  './css/app/app.less'
 // ReactDOM.render(<RouterMap />,
 ReactDOM.render(
     <Provider store = {store}>

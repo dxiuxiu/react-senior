@@ -23,20 +23,6 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'postcss-loader'
-          }
-        ]
-      },
-      {
         test: /\.less$/,
         use: [
           {
@@ -44,12 +30,6 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: {
-              // modules: true
-              modules: {
-                localIdentName: '[path][name]__[local]', // --[hash:base64:5]
-              }
-            }
           },
           {
             loader: 'postcss-loader'
@@ -62,28 +42,6 @@ module.exports = {
                 noIeCompat: true,
               },
             },
-          },
-        ],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                localIdentName: '[path][name]__[local]', // --[hash:base64:5]
-              }
-            }
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader'
           },
         ],
       },
