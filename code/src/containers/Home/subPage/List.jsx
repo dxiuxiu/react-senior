@@ -10,9 +10,12 @@ const List = (props) => {
     const [hasMore, setHasMore] = useState(false) // 当前还有没有更多数据可供加载
     const [isLoadingMore, setIsLoadingMore] = useState(false) // 控制显示加载更多按钮状态 - 显示'加载中...'还是'加载更多'
     let [page, setPage] = useState(1) // 记录下一页页码,默认显示第 0 页
+    
     useEffect(() => {
+        console.log('useEffect')
 
         loadFirstPageData().then((res) => {
+            console.log(res)
             // console.log(res.data.length)
             const list = res.data
             const hasMore = res.hasMore
@@ -39,16 +42,22 @@ const List = (props) => {
      * @desc 加载更多
      */
     const loadMore = () => {
+        console.log('====loadMore=====')
+
         // 记住 isLoadingMore 状态
         setIsLoadingMore(true)
         // const cityName = props.cityName
 
         return get(LIST).then((res) => {
-            setList([...list, ...res.data])
-            setIsLoadingMore(false)
-            setPage(page++)
-            console.log(`加载第${page+1}页的数据`)
+            console.log(res)
+            console.log('list',list)
+            // const currentList = [...list, ...res.data]
+            const currentList = list.concat(res.data)
+            console.log('currentList',currentList.length)
+            setList(currentList)
+            // setPage(page)
             setHasMore(res.hasMore)
+            setIsLoadingMore(false)
         }, (err) => {
             console.error(err)
         })
@@ -60,12 +69,6 @@ const List = (props) => {
             <h2>猜你喜欢</h2>
             {/* 列表 */}
             <ListCom data={list} />
-            {/* {list.length>0
-                ? <ListCom data={list} />
-                : <div>加载中....</div>} */}
-            {/* {list
-                ? list.length
-                : 'no data'} */}
             {/* loadMore */}
             {hasMore
                 ? <LoadMore isLoadingMore={isLoadingMore} loadingFn={loadMore} />
