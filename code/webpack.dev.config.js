@@ -78,6 +78,7 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: 'static/media/[name].[hash:7].[ext]',
+            publicPath: '../',
           }
         }]
       }

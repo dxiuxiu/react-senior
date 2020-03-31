@@ -67,6 +67,7 @@ module.exports = {
           options: {
             // path: path.resolve(__dirname, 'dist'),
             name: 'static/media/[name].[hash:7].[ext]',
+            publicPath: '../',
           }
         }]
       }

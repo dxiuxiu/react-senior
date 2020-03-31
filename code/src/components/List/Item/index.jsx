@@ -3,12 +3,14 @@ import React from 'react'
 import './index.less'
 
 
+
 const Item = (props) => {
     const data = props.data
     return (
         <div className="list-item clear-fix">
             <div className="item-img-container float-left">
                 <img src={require(`${data.img}`)} alt={data.title} />
+                {/* <img src={require(data.img)} alt={data.title} /> */}
             </div>
             <div className="item-content">
                 <div className="item-title-container clear-fix">
