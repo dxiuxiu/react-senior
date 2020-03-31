@@ -53,8 +53,10 @@ const List = (props) => {
     return (
         <div>
             {
-                list.map((item) => {
-                    return <Item key = {item.id} data={item}/>
+                list.map((item,index) => {
+                    // 最好不要使用 index 做 key 值，这里使用 index 是为了 loadMore 加载显示相同的数据不会报错
+                    return <Item key = {index} data={item}/>
+                    // return <Item key = {item.id} data={item}/>
                 })
             }
         </div>
