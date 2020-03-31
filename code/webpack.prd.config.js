@@ -55,7 +55,8 @@ module.exports = {
 
             name: 'static/images/[hash:6].[ext]',
             fallback: 'file-loader',
-            publicPath: '../'
+            publicPath: '../',
+            esModule: false, 
           }
         }]
       },

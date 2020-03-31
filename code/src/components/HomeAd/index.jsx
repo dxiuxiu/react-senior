@@ -3,8 +3,6 @@ import React from 'react'
 import './index.less'
 const imgPathPrefix = './images/'
 const HomeAd = (props) => {
-
-
     return (
         <div id = 'home-ad'>
             <h2>超值特惠</h2>

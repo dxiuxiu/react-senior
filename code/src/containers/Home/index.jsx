@@ -12,7 +12,7 @@ const Home = (props) => {
             <HomeHeader cityName={props.userInfo} />
             <Category/>
             <Ad/>
-            <List city = 'city'/>
+            <List cityName ={props.userInfo}/>
         </div>
     )
 }
