@@ -29,7 +29,7 @@ export default function (props) {
                             onKeyUp={startSearch}
                         />
                     </div> */}
-                    <Search enter = {startSearch}/>
+                    <Search enter={startSearch} />
                 </div>
             </div>
         </div>
@@ -39,6 +39,5 @@ export default function (props) {
     function startSearch(e) {
         console.log('startSearch')
 
-        history.push(`/search/all/${searchText}`)
     }
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import './index.less'
-
+import { useHistory } from 'react-router-dom'
 
 const Search = (props) => {
     const [searchText, setSearchText] = useState('')
-
+    let history = useHistory()
     const keyword = props.keyword
     return (
         <div id='search-container'>
@@ -31,7 +31,7 @@ const Search = (props) => {
         }
         props.enter(e)
 
-        // history.push(`/search/all/${searchText}`)
+        history.push(`/search/all/${searchText}`)
     }
 }
 

@@ -7,7 +7,7 @@ const SearchHeader = (props) => {
             <span className='back-icon' onClick={handleClick}>
                 <i className="icon-chevron-left"></i>
             </span>
-            <Search keyword={props.keyword} enter = {startSearch}/>
+            <Search keyword={props.keyword} enter={startSearch} />
         </div>
     )
     function handleClick() {
@@ -16,7 +16,6 @@ const SearchHeader = (props) => {
     function startSearch(e) {
         console.log('startSearch')
 
-        history.push(`/search/all/${searchText}`)
     }
 }
 
