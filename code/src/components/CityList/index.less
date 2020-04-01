@@ -1,0 +1,17 @@
+@itemHeight: 40px;
+#city-list{
+    .city-list-container{
+        display: grid;
+        grid-gap:20px 20px;
+        grid-template-columns: repeat(4,25%);
+        grid-template-rows: repeat(4,@itemHeight);
+        padding: 15px 10px;
+        .city-item{
+            list-style: none;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #f1f1f1;
+            line-height: @itemHeight;
+        }
+    }
+}

@@ -1,4 +1,6 @@
-const initState = '陕西'
+const initState = {
+    cityName: '陕西'
+}
 import * as actionTypes from '../constants/userInfo.js'
 
 export default function (state=initState,action){

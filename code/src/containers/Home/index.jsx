@@ -7,12 +7,13 @@ import { connect } from 'react-redux'
 import Ad from './subPage/Ad.jsx'
 import List from './subPage/List.jsx'
 const Home = (props) => {
+    const cityName = props.userInfo.cityName
     return (
         <div >
-            <HomeHeader cityName={props.userInfo} />
+            <HomeHeader cityName={cityName} />
             <Category/>
             <Ad/>
-            <List cityName ={props.userInfo}/>
+            <List cityName ={cityName}/>
         </div>
     )
 }

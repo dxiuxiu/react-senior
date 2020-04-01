@@ -43,7 +43,7 @@ class App extends React.Component{
 
 const mapStateToProps = (state) =>{
     return {
-        userInfo : state.city
+        userInfo : state.userInfo
     }
 }
 
