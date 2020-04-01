@@ -1,10 +1,16 @@
 import React from 'react'
 import { useParams } from "react-router-dom";
-export default function(){
-    let { category,keyword } = useParams()
+import SearchHeader from '../../components/SeachHeader/index.jsx'
+export default function () {
+    let { category, keyword } = useParams()
     return (
-        <h2>
-            search {`category=${category}; keyword =${keyword}`}
-        </h2>
+        <div>
+            <SearchHeader keyword = {keyword}/>
+            <h2>
+                search {`category=${category}; keyword =${keyword}`}
+
+            </h2>
+        </div>
+
     )
 }

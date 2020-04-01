@@ -5,12 +5,13 @@ import './index.less'
 const Search = (props) => {
     const [searchText, setSearchText] = useState('')
 
+    const keyword = props.keyword
     return (
         <div id='search-container'>
             <i className="icon-search"></i>
             <input
                 type="text"
-                placeholder='请输入关键字'
+                placeholder={keyword ? keyword : '请输入关键字'}
                 value={searchText}
                 onChange={sreachTextChangeHandle}
                 onKeyUp={startSearch}
@@ -28,7 +29,7 @@ const Search = (props) => {
         if (keyCode !== 13) {
             return
         }
-        props.search(e)
+        props.enter(e)
 
         // history.push(`/search/all/${searchText}`)
     }
