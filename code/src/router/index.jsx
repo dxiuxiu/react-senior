@@ -92,8 +92,8 @@ export default () => {
                                 <Route exact path="/home" component={Home} />
                                 <Route exact path="/city" component={City} />
                                 <Route exact path="/detail/:id" component={Detail} />
-                                {/* /:category(/:keywor) */}
-                                <Route exact path="/search" component={Search} /> 
+                                {/* <Route exact path="/search/:category(/:keyword)" component={Search} />  */}
+                                <Route exact path="/search/:category/:keyword?" component={Search} /> 
                                 <Route exact path="/user" component={User} />
                                 <Route exact path="/test" component={Test} />
                                 <Route exact path="/" component={Home} />
