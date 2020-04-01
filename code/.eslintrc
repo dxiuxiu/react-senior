@@ -14,7 +14,7 @@
     },
     "plugins": [
         "react",
-        "react-hooks"
+        "react-hooks/recommended"
     ],
     "rules": {
         "indent": 0,

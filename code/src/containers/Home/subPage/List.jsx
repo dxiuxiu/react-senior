@@ -10,13 +10,10 @@ const List = (props) => {
     const [hasMore, setHasMore] = useState(false) // 当前还有没有更多数据可供加载
     const [isLoadingMore, setIsLoadingMore] = useState(false) // 控制显示加载更多按钮状态 - 显示'加载中...'还是'加载更多'
     let [page, setPage] = useState(1) // 记录下一页页码,默认显示第 0 页
-    
+
     useEffect(() => {
-        console.log('useEffect')
 
         loadFirstPageData().then((res) => {
-            console.log(res)
-            // console.log(res.data.length)
             const list = res.data
             const hasMore = res.hasMore
             setList(list)
@@ -31,7 +28,6 @@ const List = (props) => {
      */
     const loadFirstPageData = () => {
         return get(LIST).then((res) => {
-            // console.log(res.data.length)
             return res
         }, (err) => {
             console.error(err)
@@ -42,19 +38,18 @@ const List = (props) => {
      * @desc 加载更多
      */
     const loadMore = () => {
-        console.log('====loadMore=====')
 
         // 记住 isLoadingMore 状态
         setIsLoadingMore(true)
         // const cityName = props.cityName
 
-        return get(LIST).then((res) => {
-            console.log(res)
-            console.log('list',list)
-            // const currentList = [...list, ...res.data]
-            const currentList = list.concat(res.data)
-            console.log('currentList',currentList.length)
-            setList(currentList)
+        get(LIST).then((res) => {
+            // setList(list.concat(res.data)) error 
+            /** 如果新的 state 需要通过使用先前的 state 计算得出，
+             * 那么可以将函数传递给 setState。该函数将接收先前的 state，并返回一个更新后的值。
+             * https://www.jianshu.com/p/16bef85ebd30
+            */
+            setList(list => list.concat(res.data))
             // setPage(page)
             setHasMore(res.hasMore)
             setIsLoadingMore(false)

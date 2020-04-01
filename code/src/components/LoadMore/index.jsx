@@ -1,30 +1,34 @@
-import React, { useEffect , useRef} from 'react'
+import React, { useEffect, useRef } from 'react'
 import './index.less'
 const LoadMore = (props) => {
 
-    const wrapperRef = useRef()
+    /** 
+     * @desc 加载更多
+     * 
+     */
+    const loadMoreFn = () => {
+        props.loadingFn()
+
+    }
+    let wrapperRef = useRef(null)
 
     useEffect(() => {
-        console.log('useEffect')
         function callback() {
-            console.log('callback')
-            console.log('wrapper=', wrapperRef)
+            // console.log('callback')
+            // console.log('wrapper=', wrapperRef)
             const top = wrapperRef.current.getBoundingClientRect().top
-            console.log('wrapper 距离浏览器顶部的距离=',top)
+            // console.log('wrapper 距离浏览器顶部的距离=',top)
             const windowHeight = window.screen.height
-            console.log('windowHeight=',windowHeight)
+            // console.log('windowHeight=',windowHeight)
             if (top && top < windowHeight) {
-                // props.loadingFn()
+                loadMoreFn()
             }
-
         }
         let timeId
         window.addEventListener('scroll', function (evt) {
-            // console.log(evt)
             if (props.isLoadingMore) {
                 return
             }
-            // console.log('123')
             if (timeId) {
                 clearTimeout(timeId)
             }
@@ -33,7 +37,7 @@ const LoadMore = (props) => {
     }, [])
 
     return (
-        <div className="load-more" ref = {wrapperRef}>
+        <div className="load-more" ref={wrapperRef}>
             {props.isLoadingMore
                 ?
                 <span>加载中</span>
