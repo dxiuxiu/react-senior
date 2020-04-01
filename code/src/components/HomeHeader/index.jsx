@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.less'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import Search from '../../components/Search/index.jsx'
 export default function (props) {
+    let history = useHistory()
     return (
         <div id='home-header-container'>
             <div className='home-header clear-fix'>
@@ -12,15 +14,31 @@ export default function (props) {
                     </Link>
                 </div>
                 <div className='float-right home-header-right'>
-                    <i className="icon-user"></i>
+                    <Link to='/user'>
+                        <i className="icon-user"></i>
+                    </Link>
                 </div>
                 <div className='home-header-middle'>
-                    <div className='search-container'>
+                    {/* <div className='search-container'>
                         <i className="icon-search"></i>
-                        <input type="text" placeholder='请输入关键字' />
-                    </div>
+                        <input
+                            type="text"
+                            placeholder='请输入关键字'
+                            value={searchText}
+                            onChange={sreachTextChangeHandle}
+                            onKeyUp={startSearch}
+                        />
+                    </div> */}
+                    <Search enter = {startSearch}/>
                 </div>
             </div>
         </div>
     )
+
+
+    function startSearch(e) {
+        console.log('startSearch')
+
+        history.push(`/search/all/${searchText}`)
+    }
 }
