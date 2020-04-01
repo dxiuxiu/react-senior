@@ -1,8 +1,23 @@
 import React from 'react'
-export default function(){
+import Header from '../../components/Header/index.jsx'
+export default function () {
+
     return (
-        <h2>
-            City
-        </h2>
+        <div>
+            <Header title = '选择城市'/>
+        </div>
+
     )
+
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+
+//     }
+// }
+// const mapDispatchToProps = (dispatch)=>{
+//     return {
+
+//     }
+// }

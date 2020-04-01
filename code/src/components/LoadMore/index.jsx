@@ -16,12 +16,14 @@ const LoadMore = (props) => {
         function callback() {
             // console.log('callback')
             // console.log('wrapper=', wrapperRef)
-            const top = wrapperRef.current.getBoundingClientRect().top
-            // console.log('wrapper 距离浏览器顶部的距离=',top)
-            const windowHeight = window.screen.height
-            // console.log('windowHeight=',windowHeight)
-            if (top && top < windowHeight) {
-                loadMoreFn()
+            if (wrapperRef.current.getBoundingClientRect) {
+                const top = wrapperRef.current.getBoundingClientRect().top
+                // console.log('wrapper 距离浏览器顶部的距离=',top)
+                const windowHeight = window.screen.height
+                // console.log('windowHeight=',windowHeight)
+                if (top && top < windowHeight) {
+                    loadMoreFn()
+                }
             }
         }
         let timeId
