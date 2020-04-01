@@ -81,22 +81,23 @@ export default () => {
                         <Suspense fallback={(<div>loading...</div>)}>
                             {/* Switch 包裹的 route 一旦有匹配成功的就不再向下匹配 */}
                             <Switch>
-                                {
+                                {/* {
                                     routers.map((item) => {
                                         return <Route exact={item.exact} key = {item.id} path={item.path} component={item.component} />
                                     })
                                 }
-                                <Route component={NotFound} />
+                                <Route component={NotFound} /> */}
 
 
-                                {/* <Route exact path="/home" component={Home} />
+                                <Route exact path="/home" component={Home} />
                                 <Route exact path="/city" component={City} />
-                                <Route exact path="/detail" component={Detail} />
-                                <Route exact path="/search" component={Search} />
+                                <Route exact path="/detail/:id" component={Detail} />
+                                {/* /:category(/:keywor) */}
+                                <Route exact path="/search" component={Search} /> 
                                 <Route exact path="/user" component={User} />
                                 <Route exact path="/test" component={Test} />
                                 <Route exact path="/" component={Home} />
-                                <Route component={NotFound} /> */}
+                                <Route component={NotFound} />
                             </Switch>
                         </Suspense>
                     </App>
