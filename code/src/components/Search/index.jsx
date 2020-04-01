@@ -32,6 +32,7 @@ const Search = (props) => {
         props.enter(e)
 
         history.push(`/search/all/${searchText}`)
+        setSearchText('')
     }
 }
 
