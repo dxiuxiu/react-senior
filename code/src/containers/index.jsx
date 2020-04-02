@@ -12,9 +12,9 @@ class App extends React.Component{
 
     constructor(props){
         super(props)
-        this.state = {
-            city:undefined
-        }
+        // this.state = {
+        //     city:undefined
+        // }
     }
 
     componentDidMount(){
@@ -41,22 +41,24 @@ class App extends React.Component{
     }
 }
 
-const mapStateToProps = (state) =>{
-    return {
-        userInfo : state.userInfo
-    }
-}
+// const mapStateToProps = (state) =>{
+//     return {
+//         userInfo : state.userInfo
+//     }
+// }
 
-const mapDispatchToProps = (dispatch) =>{
-    return {
-        userActionUpdate:(data) => {
-            dispatch(update(data)) // dispatch 与 dispatchEvent
-        }
-    }
-}
-const connector = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)
+// const mapDispatchToProps = (dispatch) =>{
+//     return {
+//         userActionUpdate:(data) => {
+//             dispatch(update(data)) // dispatch 与 dispatchEvent
+//         }
+//     }
+// }
+// const connector = connect(
+//     mapStateToProps,
+//     mapDispatchToProps
+// )
 
-export default connector(App)
+// export default connector(App)
+
+export default App
