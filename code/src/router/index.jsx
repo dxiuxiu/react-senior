@@ -15,6 +15,7 @@ const City = lazy(() => import('../containers/City/index.jsx'))
 const Detail = lazy(() => import('../containers/Detail/index.jsx'))
 const Search = lazy(() => import('../containers/Search/index.jsx'))
 const User = lazy(() => import('../containers/User/index.jsx'))
+const Login = lazy(() => import('../containers/Login/index.jsx'))
 const Test = lazy(() => import('../Test/index.jsx'))
 
 const routers = [
@@ -93,8 +94,9 @@ export default () => {
                                 <Route exact path="/city" component={City} />
                                 <Route exact path="/detail/:id" component={Detail} />
                                 {/* <Route exact path="/search/:category(/:keyword)" component={Search} />  */}
-                                <Route exact path="/search/:category/:keyword?" component={Search} /> 
+                                <Route exact path="/search/:category/:keyword?" component={Search} />
                                 <Route exact path="/user" component={User} />
+                                <Route exact path="/login/:router?" component={Login} />
                                 <Route exact path="/test" component={Test} />
                                 <Route exact path="/" component={Home} />
                                 <Route component={NotFound} />
