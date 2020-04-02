@@ -3,7 +3,8 @@ const router = require('koa-router')()
 router.prefix('/search')
 
 router.get('/', async (ctx, next) => {
-    const {category,keyword,page} = ctx.query
+    const {cityName,category,keyword,page} = ctx.query
+    console.log(cityName)
     ctx.body = {
         hasMore: true,
         data: [

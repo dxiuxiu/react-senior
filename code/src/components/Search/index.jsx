@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 const Search = (props) => {
     const [searchText, setSearchText] = useState('')
     let history = useHistory()
-    const {category,keyword} = props
+    const { category, keyword } = props
     return (
         <div id='search-container'>
             <i className="icon-search"></i>
@@ -31,7 +31,7 @@ const Search = (props) => {
         }
         props.enter(e)
 
-        history.push(`/search/${category}/${searchText}`)
+        history.push(`/search/${category ? category : 'all'}/${searchText}`)
         setSearchText('')
     }
 }

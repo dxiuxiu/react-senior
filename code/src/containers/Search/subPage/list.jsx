@@ -11,15 +11,15 @@ const List = (props) => {
     const [isLoadingMore, setIsLoadingMore] = useState(false) // 控制显示加载更多按钮状态 - 显示'加载中...'还是'加载更多'
     let [page, setPage] = useState(1) // 记录下一页页码,默认显示第 0 页
 
-   
+
 
 
 
     useEffect(() => {
-        const { keyword, category } = props
+        const { cityName, category, keyword } = props
         console.log('keyword=', keyword, ';category=', category)
         if (keyword) {
-            searchListByCategryKeyword(category, keyword, 0).then((res) => {
+            searchListByCategryKeyword(cityName, category, keyword, 0).then((res) => {
                 const list = res.data
                 const hasMore = res.hasMore
                 setList(list)
@@ -36,8 +36,8 @@ const List = (props) => {
     /**
  * @desc 请求首屏数据
  */
-    const searchListByCategryKeyword = (category, keyword,nextPage) => {
-        return get(`${SEARCH}?category=${category}&keyword=${keyword}&page=${nextPage}`).then((res) => {
+    const searchListByCategryKeyword = (cityName, category, keyword, nextPage) => {
+        return get(`${SEARCH}?cityName=${cityName}&category=${category}&keyword=${keyword}&page=${nextPage}`).then((res) => {
             return res
         }, (err) => {
             console.error(err)
@@ -52,13 +52,13 @@ const List = (props) => {
         setIsLoadingMore(true)
         // const cityName = props.cityName
 
-        const { keyword, category } = props
+        const { cityName, category, keyword } = props
         console.log('keyword=', keyword, ';category=', category)
         if (keyword) {
-            searchListByCategryKeyword(category, keyword, page).then((res) => {
+            searchListByCategryKeyword(cityName, category, keyword, page).then((res) => {
                 const data = res.data
                 const hasMore = res.hasMore
-                setList(list=> [...list,...data])
+                setList(list => [...list, ...data])
                 setHasMore(hasMore)
                 setIsLoadingMore(false)
             }, (err) => {

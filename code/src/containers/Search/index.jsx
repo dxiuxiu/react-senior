@@ -1,14 +1,14 @@
-import React,{useState} from 'react'
-import { useParams } from "react-router-dom";
+import React, { useState } from 'react'
+import {connect} from 'react-redux'
+import { useParams } from "react-router-dom"
 import SearchHeader from '../../components/SearchHeader/index.jsx'
-
 import SearchResultList from './subPage/list.jsx'
-export default function () {
+const Search = function (props) {
     let { category, keyword } = useParams()
     return (
         <div>
-            <SearchHeader category = {category} keyword = {keyword}/>
-            <SearchResultList category = {category} keyword = {keyword}/>
+            <SearchHeader category={category} keyword={keyword} />
+            <SearchResultList cityName={props.cityName} category={category} keyword={keyword} />
             <h2>
                 search {`category=${category}; keyword =${keyword}`}
             </h2>
@@ -16,3 +16,20 @@ export default function () {
 
     )
 }
+
+
+const mapStateToProps = (state) => {
+    console.log(state)
+    return {
+        cityName: state.userInfo.cityName
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+
+    }
+}
+
+const connector = connect(mapStateToProps,mapDispatchToProps)
+export default connector(Search)
