@@ -19,7 +19,7 @@ const List = (props) => {
         const { cityName, category, keyword } = props
         console.log('keyword=', keyword, ';category=', category)
         if (keyword) {
-            searchListByCategryKeyword(cityName, category, keyword, 0).then((res) => {
+            searchListByCategoryKeyword(cityName, category, keyword, 0).then((res) => {
                 const list = res.data
                 const hasMore = res.hasMore
                 setList(list)
@@ -36,7 +36,7 @@ const List = (props) => {
     /**
  * @desc 请求首屏数据
  */
-    const searchListByCategryKeyword = (cityName, category, keyword, nextPage) => {
+    const searchListByCategoryKeyword = (cityName, category, keyword, nextPage) => {
         return get(`${SEARCH}?cityName=${cityName}&category=${category}&keyword=${keyword}&page=${nextPage}`).then((res) => {
             return res
         }, (err) => {
@@ -55,7 +55,7 @@ const List = (props) => {
         const { cityName, category, keyword } = props
         console.log('keyword=', keyword, ';category=', category)
         if (keyword) {
-            searchListByCategryKeyword(cityName, category, keyword, page).then((res) => {
+            searchListByCategoryKeyword(cityName, category, keyword, page).then((res) => {
                 const data = res.data
                 const hasMore = res.hasMore
                 setList(list => [...list, ...data])
