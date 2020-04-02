@@ -7,7 +7,7 @@ const SearchHeader = (props) => {
             <span className='back-icon' onClick={handleClick}>
                 <i className="icon-chevron-left"></i>
             </span>
-            <Search keyword={props.keyword} enter={startSearch} />
+            <Search keyword={props.keyword}  category = {props.category} enter={startSearch} />
         </div>
     )
     function handleClick() {
