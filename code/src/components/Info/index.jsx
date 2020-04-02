@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.less'
 
-import Star from '../../components/Start/index.jsx'
+import Star from '../Star/index.jsx'
 const Info = (props) => {
     const data = props.data
     return (
