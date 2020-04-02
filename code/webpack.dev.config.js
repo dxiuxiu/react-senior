@@ -23,6 +23,10 @@ module.exports = {
       '/home': {
         target: 'http://localhost:3000',
         secure: false
+      },
+      '/search': {
+        target: 'http://localhost:3000',
+        secure: false
       }
     }
   },
