@@ -6,12 +6,14 @@ const Start = (props) => {
         if (startNum > 5) {
             startNum = startNum % 5
         }
+        setStartNum(startNum)
     }, [])
+
     return (
         <div className="star-container">
             {[1, 2, 3, 4, 5].map((item, index) => {
                 const lightClass = startNum >= item ? ' light' : ''
-                return <i key={index} className={'icon-star' + lightClass} onClick={clickHandle(item)}></i>
+                return <i key={index} className={'icon-star' + lightClass} onClick={() => {clickHandle(item)}}></i> // 
             })}
         </div>
     )
@@ -21,9 +23,7 @@ const Start = (props) => {
         if (!clickCallback) {
             return
         }
-
         setStartNum(star)
-
         clickCallback(star)
     }
 }
