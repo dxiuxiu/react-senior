@@ -27,6 +27,10 @@ module.exports = {
       '/search': {
         target: 'http://localhost:3000',
         secure: false
+      },
+      '/detail': {
+        target: 'http://localhost:3000',
+        secure: false
       }
     }
   },

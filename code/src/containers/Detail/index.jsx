@@ -1,8 +1,13 @@
 import React from 'react'
-export default function(){
+import { useParams } from 'react-router-dom'  
+import Header from '../../components/Header/index.jsx'
+import Info from './subPage/Info.jsx'
+export default function () {
+    const  { id } = useParams()
     return (
-        <h2>
-            detail
-        </h2>
+        <div>
+            <Header title ='商户详情'/>
+            <Info id = {id}/>
+        </div>
     )
 }
