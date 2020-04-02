@@ -12,8 +12,9 @@ const List = (props) => {
     let [page, setPage] = useState(1) // 记录下一页页码,默认显示第 0 页
 
     useEffect(() => {
+        const { cityName } = props
 
-        loadFirstPageData().then((res) => {
+        loadData(cityName,0).then((res) => {
             const list = res.data
             const hasMore = res.hasMore
             setList(list)
@@ -21,13 +22,13 @@ const List = (props) => {
         }, (err) => {
             console.error(err)
         })
-    }, [])
+    }, [props.cityName])
 
     /**
      * @desc 请求首屏数据
      */
-    const loadFirstPageData = () => {
-        return get(LIST).then((res) => {
+    const loadData = (cityName, page = 0) => {
+        return get(`${LIST}?cityName=${cityName}&page=${page}`).then((res) => {
             return res
         }, (err) => {
             console.error(err)
@@ -38,26 +39,19 @@ const List = (props) => {
      * @desc 加载更多
      */
     const loadMore = () => {
+        setIsLoadingMore(true) // 记住 isLoadingMore 状态
+        const { cityName } = props
+        loadData(cityName, page).then((res) => {
+            const data = res.data
+            const hasMore = res.hasMore
+            setList(list => list.concat(data))
 
-        // 记住 isLoadingMore 状态
-        setIsLoadingMore(true)
-        // const cityName = props.cityName
-
-        get(LIST).then((res) => {
-            // setList(list.concat(res.data)) error 
-            /** 如果新的 state 需要通过使用先前的 state 计算得出，
-             * 那么可以将函数传递给 setState。该函数将接收先前的 state，并返回一个更新后的值。
-             * https://www.jianshu.com/p/16bef85ebd30
-            */
-            setList(list => list.concat(res.data))
-            // setPage(page)
-            setHasMore(res.hasMore)
+            setHasMore(hasMore)
             setIsLoadingMore(false)
         }, (err) => {
             console.error(err)
         })
-
-
+        setPage(page => page + 1)
     }
     return (
         <div id='list-container'>

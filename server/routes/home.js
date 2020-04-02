@@ -40,13 +40,15 @@ router.get('/', async (ctx, next) => {
 })
 
 router.get('/list', async (ctx, next) => {
+    const {cityName,page} = ctx.query
+    console.log(cityName,page)
     ctx.body = {
         hasMore: true,
         data: [
             {
                 img: './images/汉堡.png',
-                title: '汉堡大大',
-                subTitle: '叫我汉堡大大，还你多彩口味',
+                title: `${cityName}-汉堡大大${page*5+1}`,
+                subTitle: `叫我汉堡大大，还你多彩口味`,
                 price: '28',
                 distance: '120m',
                 mumber: '389',
@@ -54,8 +56,8 @@ router.get('/list', async (ctx, next) => {
             },
             {
                 img: './images/自助餐.png',
-                title: '北京开源饭店',
-                subTitle: '[望京]自助晚餐',
+                title: `${cityName}-开源饭店${page*5+2}`,
+                subTitle: `[望京]自助晚餐`,
                 price: '98',
                 distance: '140m',
                 mumber: '689',
@@ -63,8 +65,8 @@ router.get('/list', async (ctx, next) => {
             },
             {
                 img: './images/服装定制.png',
-                title: '服装定制',
-                subTitle: '原价xx元，现价xx元，可修改一次',
+                title: `${cityName}-服装定制${page*5+3}`,
+                subTitle: `原价xx元，现价xx元，可修改一次`,
                 price: '1980',
                 distance: '160',
                 mumber: '106',
@@ -72,8 +74,8 @@ router.get('/list', async (ctx, next) => {
             },
             {
                 img: './images/婚纱摄影.png',
-                title: '婚纱摄影',
-                subTitle: '免费试穿，拍照留念',
+                title: `${cityName}-婚纱摄影${page*5+4}`,
+                subTitle: `免费试穿，拍照留念`,
                 price: '2899',
                 distance: '160',
                 mumber: '58',
@@ -81,8 +83,8 @@ router.get('/list', async (ctx, next) => {
             },
             {
                 img: './images/烧烤.png',
-                title: '麻辣串串烧',
-                subTitle: '双人免费套餐等你抢购',
+                title: `${cityName}-麻辣串串烧${page*5+5}`,
+                subTitle: `双人免费套餐等你抢购`,
                 price: '0',
                 distance: '160',
                 mumber: '1426',
