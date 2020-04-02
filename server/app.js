@@ -11,6 +11,7 @@ const users = require('./routes/users')
 
 const test = require('./routes/test')
 const home = require('./routes/home')
+const search = require('./routes/search')
 // error handler
 onerror(app)
 
@@ -39,6 +40,7 @@ app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
 app.use(test.routes(), test.allowedMethods())
 app.use(home.routes(), home.allowedMethods())
+app.use(search.routes(), search.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
