@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { get } from '../../../utils/fetch.js'
 import { ORDERLIST } from '../../../api/orderList/index.js'
 import './style.less'
+import OrderListCom from '../../../components/OrderList/index.jsx'
 const OrderList = function (props) {
     const { userInfo } = props
     const [dataList,setDataList] = useState([])
@@ -15,7 +16,11 @@ const OrderList = function (props) {
     }, [userInfo])
     return (
         <div className='order-list-container'>
-            {dataList.length}
+            {
+                dataList
+                ? <OrderListCom data = {dataList}/>
+                : null
+            }
         </div>
     )
 
