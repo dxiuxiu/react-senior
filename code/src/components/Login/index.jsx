@@ -29,7 +29,7 @@ const Login = (props) => {
         props.loginHandle(userName)
     }
 
-    function changeHandle(E){
+    function changeHandle(e){
         const text = e.target.value
         setPhone(text)
     }

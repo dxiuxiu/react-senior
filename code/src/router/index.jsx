@@ -96,7 +96,7 @@ export default () => {
                                 {/* <Route exact path="/search/:category(/:keyword)" component={Search} />  */}
                                 <Route exact path="/search/:category/:keyword?" component={Search} />
                                 <Route exact path="/user" component={User} />
-                                <Route exact path="/login/:router?" component={Login} />
+                                <Route exact path="/login/:router?/:id?" component={Login} />
                                 <Route exact path="/test" component={Test} />
                                 <Route exact path="/" component={Home} />
                                 <Route component={NotFound} />
