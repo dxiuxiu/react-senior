@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { useParams, useHistory } from "react-router-dom";
 import './index.less'
 import Header from '../../components/Header/index.jsx'
+
+import LoginCom from '../../components/Login/index.jsx'
 const Login = function (props) {
     let history = useHistory()
     const { router } = useParams()
@@ -25,7 +27,7 @@ const Login = function (props) {
             {
                 checking
                 ? <div> checking </div>
-                : <div> 显示登录组件</div>
+                : <LoginCom loginHandle = {loginHandle}/>
             }
         </div>
     )
@@ -43,7 +45,7 @@ const Login = function (props) {
 
 function mapStateToProps(state) {
     return {
-        userID: state.userInfo.userID
+        userName: state.userInfo.userName
     }
 }
 function mapDispatchToProps(dispatch) {
