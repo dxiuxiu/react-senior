@@ -18,8 +18,8 @@ const List = (props) => {
     useEffect(() => {
         const { cityName, category, keyword } = props
         console.log('keyword=', keyword, ';category=', category)
-        if (keyword) {
-            searchListByCategoryKeyword(cityName, category, keyword, 0).then((res) => {
+        if (keyword || category) {
+            searchListByCategoryKeyword(cityName, category ? category:'all', keyword?keyword :'all', 0).then((res) => {
                 const list = res.data
                 const hasMore = res.hasMore
                 setList(list)
@@ -54,8 +54,8 @@ const List = (props) => {
 
         const { cityName, category, keyword } = props
         console.log('keyword=', keyword, ';category=', category)
-        if (keyword) {
-            searchListByCategoryKeyword(cityName, category, keyword, page).then((res) => {
+        if (keyword|| category) {
+            searchListByCategoryKeyword(cityName, category ? category:'all', keyword?keyword :'all', page).then((res) => {
                 const data = res.data
                 const hasMore = res.hasMore
                 setList(list => [...list, ...data])
