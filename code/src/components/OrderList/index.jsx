@@ -7,7 +7,7 @@ const OrderList = function (props) {
         <div>
             {
                 data.map((item) => {
-                    return <Item key  = {item.id} data = {item}/>
+                    return <Item key  = {item.id} data = {item} submitComment ={props.submitComment} />
                 })
             }
         </div>

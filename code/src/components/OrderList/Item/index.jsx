@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './index.less'
+import Star from '../../Star/index.jsx'
 const Item = function (props) {
 
+    const commentText = useRef(null)
     const { data } = props
+    /** 
+     * 0 未评价
+     * 1- 评价中
+     * 
+     * 非 0 非 1 已评价
+     */
     const [commentState, setCommentState] = useState(data.commentState)
-    console.log(data)
     return (
         <div className="order-item-container">
             <div className="clear-fix">
@@ -34,11 +41,11 @@ const Item = function (props) {
                 // “评价中”才会显示输入框
                 commentState === 1
                     ? <div className="comment-text-container">
-                        <textarea style={{ width: '100%', height: '80px' }} className="comment-text" ref="commentText"></textarea>
+                        <textarea style={{ width: '100%', height: '80px' }} className="comment-text" ref={commentText}></textarea>
                         <div style={{ paddingTop: '10px', paddingBottom: '10px' }}>
-                            <Star star="0" clickCallback={starClickCallback} />
+                            <Star star='0' clickCallback={starClickCallback} />
                         </div>
-                        <button className="btn" onClick={submitComment}>提交</button>
+                        <button className="btn" onClick={() => {submitComment(data.count)}}>提交</button>
                     &nbsp;
                     <button className="btn unseleted-btn" onClick={hideComment}>取消</button>
                     </div>
@@ -47,27 +54,47 @@ const Item = function (props) {
         </div>
     )
 
-    /** @desc  */
+    /** 
+     * @desc  点击评价按钮的事件处理
+     * 
+    */
     function showComment() {
-
-        /** 提交评价信息到后台 */
-        /*** 操作后切换评价按钮的显示 */
+        /** 评价中 */
         setCommentState(1)
     }
 
-    /** @desc */
-    function starClickCallback() {
-
+    /**
+     *  @desc 点击星星符号的事件处理
+     * 
+    */
+    function starClickCallback(star) {
+        
     }
 
 
-    /** @desc  */
-    function submitComment() {
-
+    /** 
+     * @desc 点击提交评价信息的事件处理
+     * 
+    */
+    function submitComment(startCount) {
+        const value = commentText.current.value.trim() // 评论内容
+        console.log(value)
+        if (!value) {
+            return
+        }
+        function callback() {
+            setCommentState(2)  // 更新显示
+        }
+        /** 提交评价信息到后台  - 已评价*/
+        props.submitComment(data.id, startCount,value, callback)
     }
 
-    /** @desc */
+    /** 
+     * @desc 点击取消评价的事件处理
+     */
     function hideComment() {
+        /** 取消评价 - 未评价*/
+        setCommentState(0)
 
     }
 }

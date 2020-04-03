@@ -1,11 +1,11 @@
-import React, { useState,useEffect } from 'react'
-import { get } from '../../../utils/fetch.js'
-import { ORDERLIST } from '../../../api/orderList/index.js'
+import React, { useState, useEffect } from 'react'
+import { get, post } from '../../../utils/fetch.js'
+import { ORDERLIST, SUBMITCOMMENT } from '../../../api/orderList/index.js'
 import './style.less'
 import OrderListCom from '../../../components/OrderList/index.jsx'
 const OrderList = function (props) {
     const { userInfo } = props
-    const [dataList,setDataList] = useState([])
+    const [dataList, setDataList] = useState([])
     useEffect(() => {
         if (userInfo) {
             // 获取 orderList
@@ -18,8 +18,8 @@ const OrderList = function (props) {
         <div className='order-list-container'>
             {
                 dataList
-                ? <OrderListCom data = {dataList}/>
-                : null
+                    ? <OrderListCom data={dataList} submitComment={submitComment} />
+                    : null
             }
         </div>
     )
@@ -30,6 +30,25 @@ const OrderList = function (props) {
         }, (err) => {
             console.error(err)
             return err
+        })
+    }
+
+    function submitComment(id, count = 0, comment, callback) {
+        const data = {
+            id,
+            comment,
+            count
+        }
+        console.log(data)
+        post(`${SUBMITCOMMENT}`, data).then((res) => {
+
+            console.log(res)
+            if (res.data) {
+                /** 修改成功 */
+                callback()
+            }
+        }, (err) => {
+            console.error(err)
         })
     }
 }
