@@ -1,7 +1,8 @@
 import React from 'react'
 import './index.less'
-
+import {useHistory } from 'react-router-dom'
 const Header = (props) => {
+    const history = useHistory()
     return (
         <div id = 'common-header'>
             <span className='back-icon' onClick={handleClick}>
@@ -15,6 +16,11 @@ const Header = (props) => {
     )
 
     function handleClick(){
+        const {backRouter} = props
+        if(backRouter){
+            history.push(backRouter)
+            return 
+        }
         window.history.back()
     }
 

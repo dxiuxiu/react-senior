@@ -13,7 +13,7 @@ const User = function (props) {
 
     return (
         <div>
-            <Header title='用户中心' />
+            <Header title='用户中心' backRouter='/'/>
         </div>
     )
 }
