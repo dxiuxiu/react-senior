@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Header from '../../components/Header/index.jsx'
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom"
+import UserInfo from '../../components/UserInfo/index.jsx'
 const User = function (props) {
     let history = useHistory()
     useEffect(() => {
@@ -14,6 +15,7 @@ const User = function (props) {
     return (
         <div>
             <Header title='用户中心' backRouter='/'/>
+            <UserInfo userInfo = {props.userInfo}/>
         </div>
     )
 }
