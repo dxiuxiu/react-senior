@@ -31,7 +31,12 @@ module.exports = {
       '/detail': {
         target: 'http://localhost:3000',
         secure: false
+      },
+      '/orderList': {
+        target: 'http://localhost:3000',
+        secure: false
       }
+      
     }
   },
   module: {
