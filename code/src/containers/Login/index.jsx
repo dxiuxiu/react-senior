@@ -20,7 +20,7 @@ const Login = function (props) {
             // 未登录 - 加载登录组件
             setChecking(false)
         }
-    }, [props.userID])
+    })
     return (
         <div>
             <Header title='登录' />
