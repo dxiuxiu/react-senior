@@ -35,3 +35,31 @@
 ### code 
 
 `项目源代码` project 分支为完整代码,其余分支为辅助开发分支
+
+## 运行项目
+
+```shell
+# run test api
+
+cd server
+yarn install
+yarn dev
+
+# run web code
+cd code
+yarn install
+yarn start
+
+```
+
+## 运行效果预览
+
+![首页](./docs/images/首页.png)
+
+![商户详情](./docs/images/商户详情.png)
+
+![登录-假登录](./docs/images/登录.png)
+
+![选择城市](./docs/images/选择城市.png)
+
+![用户中心](./docs/images/用户中心.png)
