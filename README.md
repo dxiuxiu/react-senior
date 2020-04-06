@@ -23,7 +23,9 @@
 
 ## 项目背景
 
-因为一些原因很长一段时间在家,为了更好的深入理解 redux 和 react hook 的使用仅依托于[慕课网](https://www.imooc.com/) [双越老师](https://www.imooc.com/t/4427201)的实战课程[React技术栈仿大众点评Web App](https://coding.imooc.com/class/99.html)的业务逻辑,使用当前(2020-03)最新从零搭建开发环境、使用 React hook 实现组件开发
+因为一些原因很长一段时间在家,为了更好的深入理解 redux 和 react hook 的使用,借用了[慕课网](https://www.imooc.com/) [双越老师](https://www.imooc.com/t/4427201)的实战课程[React技术栈仿大众点评Web App](https://coding.imooc.com/class/99.html)中的业务逻辑,使用 redux 和 react hook 自己重构了一版 - `当前(2020-03)最新依赖从零搭建开发环境、使用 React hook 实现组件开发`
+
+实战课程[React技术栈仿大众点评Web App](https://coding.imooc.com/class/99.html)的 webpack react react-router 版本都挺老的,尤其 react ,课程中 react 为 15.x ,但大家应该都知道 16.8 之后 React 不但增加了 Hook 还更新了生命周期函数。总之`不建议使用该课程作为技术学习但如果是借鉴开发思想可以看一下`
 
 
 ## 文件夹结构说明
