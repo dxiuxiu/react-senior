@@ -23,7 +23,7 @@
 
 ## 项目背景
 
-`因为一些原因很长一段时间在家,为了更好的深入理解 redux 和 react hook 的使用仅依托于[慕课网](https://www.imooc.com/) [双越老师](https://www.imooc.com/t/4427201)的实战课程[React技术栈仿大众点评Web App](https://coding.imooc.com/class/99.html)的业务逻辑,使用当前(2020-03)最新从零搭建开发环境、使用 React hook 实现组件开发`
+因为一些原因很长一段时间在家,为了更好的深入理解 redux 和 react hook 的使用仅依托于[慕课网](https://www.imooc.com/) [双越老师](https://www.imooc.com/t/4427201)的实战课程[React技术栈仿大众点评Web App](https://coding.imooc.com/class/99.html)的业务逻辑,使用当前(2020-03)最新从零搭建开发环境、使用 React hook 实现组件开发
 
 
 ## 文件夹结构说明
